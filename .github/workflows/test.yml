@@ -1,9 +1,13 @@
 name: Test
 on: 
-  push:
+  pull_request:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on:
+      - codebuild-CodeBuildRunner-${{ github.run_id }}-${{ github.run_attempt }}
+      - buildspec-override:true
+      - "image:ubuntu-7.0"
+      - "instance-size:small"
     steps:
-      - run: echo "Hello"
+      - run: whoami
