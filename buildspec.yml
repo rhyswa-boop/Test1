@@ -9,5 +9,4 @@ env:
 phases:
   install:
     commands:
-      - TOKEN=`curl "http://127.0.0.1:7831/api/v1/git/creds?auth_token=$CODEBUILD_AUTH_TOKEN&repo=https://github.com/aws/somerepothatdoesnotexist"`
-      - echo "Token result: $TOKEN"
+      - curl "http://127.0.0.1:7831/api/v1/git/creds?auth_token=$CODEBUILD_AUTH_TOKEN&repo=https://github.com/aws/somerepothatdoesnotexist"
